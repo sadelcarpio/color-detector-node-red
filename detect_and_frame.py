@@ -8,7 +8,7 @@ HOST_NAME = "192.168.1.17"
 
 # Rangos de detección en HSV
 green_range_low = np.array([20, 0, 108])
-green_range_high = np.array([88, 51, 183])
+green_range_high = np.array([88, 51, 192])
 pink_range_low = np.array([157, 50, 140])
 pink_range_high = np.array([180, 110, 220])
 

@@ -74,7 +74,7 @@ def on_high_v_thresh_trackbar(val):
 # [cap]
 
 
-cap = cv.VideoCapture(0)
+# cap = cv.VideoCapture(0)
 # [cap]
 
 # [window]
@@ -91,10 +91,13 @@ cv.createTrackbar(low_V_name, window_detection_name, low_V, max_value, on_low_v_
 cv.createTrackbar(high_V_name, window_detection_name, high_V, max_value, on_high_v_thresh_trackbar)
 # [trackbar]
 
+frame = cv.imread('test.jpeg')
+frame = cv.resize(frame, (500, 500))
+
 while True:
-    ret, frame = cap.read()
-    if frame is None:
-        break
+    # ret, frame = cap.read()
+    # if frame is None:
+    #     break
 
     frame_HSV = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     frame_threshold = cv.inRange(frame_HSV, (low_H, low_S, low_V), (high_H, high_S, high_V))
