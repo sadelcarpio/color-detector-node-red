@@ -3,6 +3,9 @@ import numpy as np
 import paho.mqtt.publish as publish
 import drivers
 
+# hostname del servidor MQTT (en este caso el mismo Rpi)
+HOST_NAME = "192.168.1.17"
+
 # Rangos de detección en HSV
 green_range_low = np.array([20, 0, 108])
 green_range_high = np.array([88, 51, 183])
@@ -19,6 +22,7 @@ display.lcd_display_string("colores -- sdca*", 2)
 def frame_and_publish(src):
     global x_prev, count
     src_hsv = cv.cvtColor(src, cv.COLOR_BGR2HSV)
+    # Aquí se agregarían más etiquetas
     mask = {'Pink': cv.inRange(src_hsv, pink_range_low, pink_range_high),
             'Green': cv.inRange(src_hsv, green_range_low, green_range_high)}
     poly_approx = {'Pink': [], 'Green': []}
@@ -34,7 +38,7 @@ def frame_and_publish(src):
                 x, y, w, h = cv.boundingRect(poly_approx[color][i])
                 if x == 0 and x_prev != 0:
                     count[color] += 1
-                    publish.single("data", "{},{}".format(count['Pink'], count['Green']), hostname="192.168.1.17")
+                    publish.single("data", "{},{}".format(count['Pink'], count['Green']), hostname=HOST_NAME)
                     display.lcd_clear()
                     display.lcd_display_string("Rosados: {}".format(count['Pink']), 1)
                     display.lcd_display_string("Verdes: {}".format(count['Green']), 2)
