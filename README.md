@@ -26,7 +26,7 @@ En mysql:
 para ejecutarlo.
 Se usó phpMyAdmin para exportar la tabla en formato .csv y se muestra una prueba de ello en `CONTEO.csv`
 
-## Mejoras
+## Posibles mejoras
 * Mejorar el código para soportar más clases de manera más eficiente.
 * Automatizar el proceso de inicio del programa, por algún callback usando una red LPWAN como Sigfox.
 * Pasar los datos a un servicio de almacenamiento en la nube.
