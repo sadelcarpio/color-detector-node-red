@@ -38,8 +38,10 @@ def frame_and_publish(src):
                 x, y, w, h = cv.boundingRect(poly_approx[color][i])
                 if x == 0 and x_prev != 0:
                     count[color] += 1
+                    # colocar más datos si hay más etiquetas
                     publish.single("data", "{},{}".format(count['Pink'], count['Green']), hostname=HOST_NAME)
                     display.lcd_clear()
+                    # cuestión de acomodar si hay más etiquetas
                     display.lcd_display_string("Rosados: {}".format(count['Pink']), 1)
                     display.lcd_display_string("Verdes: {}".format(count['Green']), 2)
                 # En caso se quiera visualizar con conexión HDMI
