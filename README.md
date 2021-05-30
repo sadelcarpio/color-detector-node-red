@@ -1,12 +1,15 @@
 # color-detector-node-red
 Detector de productos de diferente color usando OpenCV, node-red, y conexión a base de datos.
-Mediante un Raspberry Pi con cámara (RaspiCam V2) se detecta cuando pasa un producto de determinado color, el cual es contado y enviado vía MQTT a un flujo de node-red, en el cual la data se procesa para una base de datos (en el mismo Rpi) y visualización en un dashboard.
+Mediante un Raspberry Pi con cámara (RaspiCam V2) se detecta cuando pasa un producto de determinado color, el cual es contado y enviado vía MQTT a un flujo de node-red, en el cual la data se procesa para una base de datos (en el mismo Rpi) y visualización en un dashboard. Para un Raspberry Pi 3B, es muy recomendable sino obligatorio tener disipador y ventilador.
 
 <img src=https://github.com/sadelcarpio/color-detector-node-red/blob/main/imgs/rpi.jpeg>
 
 ## Detección de color
 Se necesita para ello  la librería de opencv en python y numpy. Se calibró la detección de color en HSV con el script `capture_color.py`. Por ahora solo en color verde y rosado.
 Luego en el script `detect_and_frame.py` se trabaja en la detección de los colores calibrados además de publicar en MQTT y mostrar en el display.
+
+<img src=https://github.com/sadelcarpio/color-detector-node-red/blob/main/imgs/calibration.jpeg>
+
 
 ## Display
 El display es opcional, el driver puede instalarse en el Raspberry Pi de este repositorio: https://github.com/the-raspberry-pi-guy/lcd
