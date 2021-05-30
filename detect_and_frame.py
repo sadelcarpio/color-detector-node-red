@@ -14,6 +14,8 @@ pink_range_high = np.array([180, 110, 220])
 
 # contador de productos
 count = {'Pink': 0, 'Green': 0}
+
+# inicialización del LCD (ver drivers y enlace para instalación)
 display = drivers.Lcd()
 display.lcd_display_string("*Detector de", 1)
 display.lcd_display_string("colores -- sdca*", 2)
