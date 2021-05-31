@@ -18,7 +18,7 @@ Luego de eso con la librería `drivers` se puede trabajar con el LCD por I2C en 
 
 ## Flujo de nodered
 El flujo de se encuentra en un archivo .json el cual puede ser importado a node-red. Los módulos necesarios fueron `node-red-dashboard` y `node-red-node-mysql`.
-Básicamente se adapta la data para pasarla a una base de datos en servidor local. 
+Básicamente se adapta la data para pasarla a una base de datos en servidor local. La entrada recibe la  publicación MQTT hecha por `detect_and_frame.py`, para ello es necesario tener funcionando un broker MQTT (en este caso se usó Mosquitto)
 
 <img src=https://github.com/sadelcarpio/color-detector-node-red/blob/main/imgs/flow.jpeg>
 
